@@ -26,3 +26,10 @@ async def async_views(request):
 def sync_view(request):
     http_call_sync()
     return HttpResponse('Blocking HTTP request')
+
+# Minha nova view assíncrona com contador de tempo
+async def async_counter_view(request):
+    for num in range(1, 11):
+        await asyncio.sleep(1)
+        print(f"Contador: {num}")
+    return HttpResponse("Async Counter Completed!")
